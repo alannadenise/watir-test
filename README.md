@@ -4,7 +4,7 @@ Watir POC with gmail
 
 ## Requirements
 
-* ruby 2.0
+* ruby 2
 * Firefox
 
 ## Quick start
