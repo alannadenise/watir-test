@@ -13,7 +13,7 @@ proxyname = gets.chomp
 puts 'please enter your proxy port:'
 proxyport = gets.chomp
 
-def create_firefox_profile
+def create_firefox_profile(proxyname,proxyport)
     profile = Selenium::WebDriver::Firefox::Profile.new
     profile['network.proxy.ftp']           = proxyname
     profile['network.proxy.ftp_port']      = proxyport
@@ -28,7 +28,7 @@ end
  
 ENV['no_proxy'] = '127.0.0.1'
 
-b = Watir::Browser.new :firefox, :profile => create_firefox_profile
+b = Watir::Browser.new :firefox, :profile => create_firefox_profile(proxyname,proxyport)
 
 b.goto 'http://gmail.com'
 b.text_field(:id => 'Email').set username
