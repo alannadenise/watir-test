@@ -8,16 +8,20 @@ puts 'please enter an email address:'
 emailaddress = gets.chomp
 puts 'please enter your subject:'
 subject = gets.chomp
+puts 'please enter your proxy name:'
+proxyname = gets.chomp
+puts 'please enter your proxy port:'
+proxyport = gets.chomp
 
 def create_firefox_profile
     profile = Selenium::WebDriver::Firefox::Profile.new
-    profile['network.proxy.ftp']           = "proxy"
-    profile['network.proxy.ftp_port']      = 3128
-    profile['network.proxy.http']          = "proxy"
-    profile['network.proxy.http_port']     = 3128
+    profile['network.proxy.ftp']           = proxyname
+    profile['network.proxy.ftp_port']      = proxyport
+    profile['network.proxy.http']          = proxyname
+    profile['network.proxy.http_port']     = proxyport
     profile['network.proxy.no_proxies_on'] = "localhost, 127.0.0.1"
-    profile['network.proxy.ssl']           = "proxy"
-    profile['network.proxy.ssl_port']      = 3128
+    profile['network.proxy.ssl']           = proxyname
+    profile['network.proxy.ssl_port']      = proxyport
     profile['network.proxy.type']          = 1
     profile
 end
